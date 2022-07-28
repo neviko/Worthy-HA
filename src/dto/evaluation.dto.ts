@@ -5,8 +5,9 @@ import { ClarityEnum, ColorEnum, CutEnum } from "../types/enums"
 export default class EvaluationDto {
 
     @IsNotEmpty()
-    @IsNumber()
+    // @IsNumber()
     // @IsPositive()
+    // TODO fix positive decorator
     carat_weight:number
     
     @IsNotEmpty()

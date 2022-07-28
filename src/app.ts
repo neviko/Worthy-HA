@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import express, { Application, Request, Response } from 'express'
 import EvaluationDto from './dto/evaluation.dto'
-import { randomlyGenerateDiamondData } from './services/diamond.service'
+import { evaluateDiamondPrice, evaluationHandler, randomlyGenerateDiamondData } from './services/diamond.service'
 import { dtoValidation } from './validation.handler'
 
 const app: Application = express()
@@ -17,11 +17,9 @@ app.get('/evaluation', async (req: Request, res: Response):Promise<void> => {
         .status(400)
         .send(errorMessage)
     }
-
+    const evaluatedPrice = evaluationHandler(req.query)
+    res.status(200).send({evaluatedPrice})
     
-    
-
-    res.send('Hello toto')
 })
 
 app.listen(port, function () {

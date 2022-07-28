@@ -1,4 +1,4 @@
- export enum CutEnum {
+export enum CutEnum {
     POOR,
     FAIR,
     GOOD,
