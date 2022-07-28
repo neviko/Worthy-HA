@@ -18,7 +18,7 @@ app.get('/evaluation', async (req: Request, res: Response):Promise<void> => {
         .send(errorMessage)
     }
 
-    randomlyGenerateDiamondData()
+    
     
 
     res.send('Hello toto')
@@ -26,4 +26,9 @@ app.get('/evaluation', async (req: Request, res: Response):Promise<void> => {
 
 app.listen(port, function () {
     console.log(`App is listening on port ${port} !`)
+    for(let i=0;i<50;i++){
+        randomlyGenerateDiamondData()
+    }
+    console.log('Diamonds created');
+    
 })
