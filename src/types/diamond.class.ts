@@ -6,6 +6,7 @@ export class Diamond {
     color: ColorEnum
     clarity: ClarityEnum
     price: number
+    imgUrl:string
     extraInfo:any
 
     constructor(
@@ -14,6 +15,7 @@ export class Diamond {
         clarity: ClarityEnum,
         cut : CutEnum, 
         price: number,
+        imgUrl?:string,
         extraInfo?:any ){
             this.carat_weight = carat_weight
             this.cut = cut
