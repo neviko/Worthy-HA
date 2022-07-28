@@ -1,4 +1,4 @@
- export enum Cut {
+ export enum CutEnum {
     POOR,
     FAIR,
     GOOD,
@@ -7,7 +7,7 @@
     SUPER_IDEAL
 }
 
-export enum Color {
+export enum ColorEnum {
     D,
     E,
     F,
@@ -17,7 +17,7 @@ export enum Color {
     J
 }
 
-export enum Clarity {
+export enum ClarityEnum {
     SI2,
     SI1,
     VS2,

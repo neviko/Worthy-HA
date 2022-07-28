@@ -1,22 +1,23 @@
 import { IsEnum, IsNotEmpty, IsNumber, IsPositive } from "class-validator"
-import { Clarity, Color, Cut } from "../types/enums"
+import { isFloat32Array } from "util/types"
+import { ClarityEnum, ColorEnum, CutEnum } from "../types/enums"
 
 export default class EvaluationDto {
 
     @IsNotEmpty()
     @IsNumber()
-    @IsPositive()
+    // @IsPositive()
     carat_weight:number
     
     @IsNotEmpty()
-    @IsEnum(Cut)
-    cut: Cut
+    @IsEnum(CutEnum)
+    cut: CutEnum
 
     @IsNotEmpty()
-    @IsEnum(Color)
-    color: Color
+    @IsEnum(ColorEnum)
+    color: ColorEnum
 
     @IsNotEmpty()
-    @IsEnum(Clarity)
-    clarity: Clarity
+    @IsEnum(ClarityEnum)
+    clarity: ClarityEnum
 }
