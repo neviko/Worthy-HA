@@ -105,3 +105,16 @@ export const evaluationHandler = (params:any) =>{
 
     return evaluateDiamondPrice(_carat_weight,_color,_clarity,_cut)
 }
+
+export const getDiamondsByPrice = (params:any)=>{
+
+    const {price,amount} = params
+   const sortedDiamonds = sortByPrice(price)
+   return sortedDiamonds.slice(0,amount)
+}   
+
+const sortByPrice = (price:number)=>{
+   return diamonds.sort((a,b)=>{
+       return Math.abs(a.price - price) - Math.abs(b.price - price)
+       })
+}

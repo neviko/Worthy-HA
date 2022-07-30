@@ -2,14 +2,21 @@ import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import express, { Application, Request, Response } from 'express'
 import EvaluationDto from './dto/evaluation.dto'
-import { evaluateDiamondPrice, evaluationHandler, randomlyGenerateDiamondData } from './services/diamond.service'
+import { evaluateDiamondPrice, evaluationHandler, getDiamondsByPrice, randomlyGenerateDiamondData } from './services/diamond.service'
 import { dtoValidation } from './validation.handler'
+const cors = require('cors')
+
 
 const app: Application = express()
 
+app.use(cors({
+    origin: '*',
+}));
+
+
 const port: number = 3001
 
-app.get('/evaluation', async (req: Request, res: Response):Promise<void> => {
+app.get('/evaluation', cors(),  async (req: Request, res: Response):Promise<void> => {
 
     const errorMessage = await dtoValidation(EvaluationDto,req.query)
     if (errorMessage){
@@ -19,6 +26,16 @@ app.get('/evaluation', async (req: Request, res: Response):Promise<void> => {
     }
     const evaluatedPrice = evaluationHandler(req.query)
     res.status(200).send({evaluatedPrice})
+    
+})
+
+app.get('/similar', cors(),  async (req: Request, res: Response):Promise<void> => {
+
+    
+
+    const similarDiamonds = getDiamondsByPrice(req.query)
+    res.status(200).send({similarDiamonds})
+
     
 })
 
