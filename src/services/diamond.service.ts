@@ -45,9 +45,9 @@ export const randomlyGenerateDiamondData = ()=>{
     const carat = parseFloat((Math.random() * pricingTable.carat_weight.max_amount).toFixed(2))
 
     // choose enum randomly
-    const color:string =ColorEnum[ Math.floor( (Math.random() * Object.keys(ColorEnum).length))]
-    const clarity:string = ColorEnum[Math.floor( (Math.random() * Object.keys(ClarityEnum).length/2))]
-    const cut:string = CutEnum[Math.floor( (Math.random() * Object.keys(CutEnum).length/2))]
+    const color:string =ColorEnum[ Math.floor( (Math.random() * (Object.keys(ColorEnum).length/2 -1)))]
+    const clarity:string = ClarityEnum[Math.floor( (Math.random() * (Object.keys(ClarityEnum).length/2 -1)))]
+    const cut:string = CutEnum[Math.floor( (Math.random() * (Object.keys(CutEnum).length/2 -1)))]
     
     const price = evaluateDiamondPrice(carat,color,clarity,cut)
     const diamond = new Diamond(carat,color,clarity,cut,price)
