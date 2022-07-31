@@ -1,0 +1,15 @@
+# Worthy Home assignment server side
+
+luxury_goods - node.js, express server
+
+
+## how to run?
+
+1 - open luxury_goods folder.
+2 - run "yarn && run yarn dev".
+
+keep the server open and run the client
+
+3 - open luxury_goods_client/luxury-client folder.
+4 - run "yarn && yarn start"
+5 - the client should be opened in your localhost in port 3000
